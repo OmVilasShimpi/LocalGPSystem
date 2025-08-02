@@ -1,0 +1,186 @@
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600&family=Inter:wght@300;400;500&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<nav class="navbar" [class.navbar-hidden]="!isNavbarVisible">
+  <div class="logo">{{ 'home.nav.logo' | translate }}</div>
+
+  <div class="navbar-right">
+    <!-- Language Switcher -->
+    <div class="language-switcher" (click)="toggleLanguageDropdown()" tabindex="0">
+      <i class="fas fa-globe"></i>
+      <div class="language-options" [class.show]="isDropdownOpen">
+        <span (click)="switchLanguageString('en')">🇬🇧 English</span>
+        <span (click)="switchLanguageString('hin')">🇮🇳 हिंदी</span>
+        <span (click)="switchLanguageString('fr')">🇫🇷 Français</span>
+        <span (click)="switchLanguageString('ge')">🇩🇪 German</span>
+        <span (click)="switchLanguageString('pl')">🇵🇱 Polski</span>
+      </div>
+    </div>
+    <!-- Vertical Separator -->
+    <span class="nav-separator">|</span>
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+      <li><a routerLink="/home">{{ 'home.nav.home' | translate }}</a></li>
+      <li><a routerLink="/login">{{ 'home.nav.login' | translate }}</a></li>
+      <li><a routerLink="/signup">{{ 'home.nav.signup' | translate }}</a></li>
+      <li><a href="#contact">{{ 'home.nav.contact' | translate }}</a></li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+<section class="hero-section animated-section animated-delay-1" id="home">
+  <h1 class="typing-text">{{ 'home.hero.title' | translate }}</h1>
+  <p>{{ 'home.hero.subtitle' | translate }}</p>
+  <div class="hero-buttons">
+    <a routerLink="/login" class="btn-primary">{{ 'home.hero.login' | translate }}</a>
+    <a routerLink="/signup" class="btn-primary">{{ 'home.hero.signup' | translate }}</a>
+  </div>
+</section>
+
+<section class="about-section animated-section animated-delay-2" id="about-us">
+  <div class="about-content">
+    <div class="about-text">
+      <h2>{{ 'home.about.title' | translate }}</h2>
+      <p>{{ 'home.about.intro' | translate }}</p>
+      <ul class="about-list">
+        <li><span class="icon-circle"><i class="fa-solid fa-calendar-check" aria-label="Appointment Booking"></i></span>{{ 'home.about.point1' | translate }}</li>
+        <li><span class="icon-circle"><i class="fa-solid fa-user-doctor" aria-label="Doctor Availability"></i></span>{{ 'home.about.point2' | translate }}</li>
+        <li><span class="icon-circle"><i class="fa-solid fa-file-prescription" aria-label="Prescription Management"></i></span>{{ 'home.about.point3' | translate }}</li>
+        <li><span class="icon-circle"><i class="fa-solid fa-lock" aria-label="Security"></i></span>{{ 'home.about.point4' | translate }}</li>
+        <li><span class="icon-circle"><i class="fa-solid fa-users" aria-label="Community"></i></span>{{ 'home.about.point5' | translate }}</li>
+      </ul>
+      <p>{{ 'home.about.outro' | translate }}</p>
+    </div>
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&w=800&q=80" alt="{{ 'home.about.imageAlt' | translate }}" />
+    </div>
+  </div>
+</section>
+
+<section class="features-section animated-section animated-delay-2" id="why-choose-us">
+  <h2>{{ 'home.features.title' | translate }}</h2>
+  <div class="features-container">
+    <div class="feature-card">
+      <h3>🩺 {{ 'home.features.card1.title' | translate }}</h3>
+      <p>{{ 'home.features.card1.desc' | translate }}</p>
+    </div>
+    <div class="feature-card">
+      <h3>📅 {{ 'home.features.card2.title' | translate }}</h3>
+      <p>{{ 'home.features.card2.desc' | translate }}</p>
+    </div>
+    <div class="feature-card">
+      <h3>💊 {{ 'home.features.card3.title' | translate }}</h3>
+      <p>{{ 'home.features.card3.desc' | translate }}</p>
+    </div>
+    <div class="feature-card">
+      <h3>🔒 {{ 'home.features.card4.title' | translate }}</h3>
+      <p>{{ 'home.features.card4.desc' | translate }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="doctors-carousel-section" id="doctors">
+  <h2>{{ 'home.doctors.title' | translate }}</h2>
+  <div class="doctors-grid">
+    <div class="doctor-card fade-in" *ngFor="let doctor of doctors; let i = index" [ngStyle]="{ '--delay': (i * 0.1) + 's' }">
+      <div class="doctor-image-container">
+        <img [src]="doctor.image" alt="Doctor Image" />
+        <div class="overlay-icons">
+          <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:shimpiomvilas@gmail.com" title="Send Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div class="doctor-info">
+        <h3>{{ doctor.name }}</h3>
+        <p>{{ doctor.speciality }}</p>
+        <span class="badge">Top Rated</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="stats-section animated-section animated-delay-3" id="stats">
+  <h2>{{ 'home.stats.title' | translate }}</h2>
+  <div class="stats-container">
+    <div class="stat-card">
+      <h3><span class="count" id="doctor-count">0</span>+</h3>
+      <p>{{ 'home.stats.doctors' | translate }}</p>
+    </div>
+    <div class="stat-card">
+      <h3><span class="count" id="patient-count">0</span>+</h3>
+      <p>{{ 'home.stats.patients' | translate }}</p>
+    </div>
+    <div class="stat-card">
+      <h3><span class="count" id="appointment-count">0</span>+</h3>
+      <p>{{ 'home.stats.appointments' | translate }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>{{ 'home.testimonials.title' | translate }}</h2>
+  <div class="testimonial-slider-wrapper">
+    <div class="testimonial-slider" id="testimonialSlider">
+      <div class="testimonial">
+        <p>{{ 'home.testimonials.t1.quote' | translate }}</p>
+        <h4>{{ 'home.testimonials.t1.author' | translate }}</h4>
+      </div>
+      <div class="testimonial">
+        <p>{{ 'home.testimonials.t2.quote' | translate }}</p>
+        <h4>{{ 'home.testimonials.t2.author' | translate }}</h4>
+      </div>
+      <div class="testimonial">
+        <p>{{ 'home.testimonials.t3.quote' | translate }}</p>
+        <h4>{{ 'home.testimonials.t3.author' | translate }}</h4>
+      </div>
+      <div class="testimonial">
+        <p>{{ 'home.testimonials.t4.quote' | translate }}</p>
+        <h4>{{ 'home.testimonials.t4.author' | translate }}</h4>
+      </div>
+      <div class="testimonial">
+        <p>{{ 'home.testimonials.t5.quote' | translate }}</p>
+        <h4>{{ 'home.testimonials.t5.author' | translate }}</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section animated-section animated-delay-5" id="contact">
+  <div class="contact-wrapper-card">
+  <h2>{{ 'home.contact.title' | translate }}</h2>
+  <p class="contact-subtitle">{{ 'home.contact.subtitle' | translate }}</p>
+
+  <div class="contact-cards-container">
+    <div class="contact-card">
+      <i class="fa fa-envelope" aria-label="Email"></i>
+      <h4>{{ 'home.contact.email' | translate }}</h4>
+      <p><a href="mailto:johnsmith179805&#64;gmail.com" style="font-size: 16px;">johnsmith179805&#64;gmail.com</a></p>
+    </div>
+    <div class="contact-card">
+      <i class="fa fa-phone" aria-label="Phone"></i>
+      <h4>{{ 'home.contact.phone' | translate }}</h4>
+      <p>+44 7451247896</p>
+    </div>
+    <div class="contact-card">
+      <i class="fa fa-map-marker-alt" aria-label="Location"></i>
+      <h4>{{ 'home.contact.location' | translate }}</h4>
+      <p>Leicester, United Kingdom</p>
+    </div>
+  </div>
+
+  <form class="contact-form" (ngSubmit)="submitContactForm()" #contactForm="ngForm">
+    <input type="text" name="name" placeholder="{{ 'home.contact.form.name' | translate }}" required [(ngModel)]="contact.name">
+    <input type="email" name="email" placeholder="{{ 'home.contact.form.email' | translate }}" required [(ngModel)]="contact.email">
+    <textarea name="message" placeholder="{{ 'home.contact.form.message' | translate }}" required [(ngModel)]="contact.message"></textarea>
+    <button type="submit" [disabled]="!contactForm.valid">{{ 'home.contact.form.send' | translate }}</button>
+  </form>
+  </div>
+</section>
+
+<footer class="footer animated-section animated-delay-6">
+  <p>&copy; 2025 {{ 'home.footer.copy' | translate }}</p>
+</footer>

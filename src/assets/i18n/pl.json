@@ -1,0 +1,249 @@
+{
+"home": {
+"nav": {
+"logo": "Local GP System",
+"home": "Strona główna",
+"login": "Zaloguj się",
+"signup": "Zarejestruj się",
+"contact": "Skontaktuj się z nami"
+},
+"hero": {
+"title": "Twoje zdrowie, nasz priorytet",
+"subtitle": "Umawiaj wizyty, konsultuj się z lekarzami i zarządzaj potrzebami medycznymi.",
+"login": "Zaloguj się",
+"signup": "Zarejestruj się"
+},
+"about": {
+"title": "O nas",
+"intro": "Local GP System ma na celu uczynienie opieki zdrowotnej prostą, dostępną i wydajną dla każdego. Nasza platforma łączy pacjentów z zaufanymi dostawcami opieki zdrowotnej za pomocą zaledwie kilku kliknięć, zapewniając wygodę i bezpieczeństwo.",
+"point1": "Łatwe umawianie wizyt u zweryfikowanych lekarzy",
+"point2": "Śledzenie dostępności lekarzy w czasie rzeczywistym",
+"point3": "Cyfrowe zarządzanie receptami",
+"point4": "Bezpieczny, prywatny i przyjazny dla użytkownika interfejs",
+"point5": "Zaprojektowany dla pacjentów i pracowników służby zdrowia",
+"outro": "W Local GP System wierzymy w wzmacnianie społeczności poprzez technologię, która stawia na pierwszym miejscu dobre samopoczucie i zaufanie",
+"imageAlt": "Informacje o Local GP System"
+},
+"features": {
+"title": "Dlaczego warto nas wybrać?",
+"card1": {
+"title": "Łatwe umawianie wizyt",
+"desc": "Umawiaj wizyty u lekarzy za pomocą kilku kliknięć."
+},
+"card2": {
+"title": "Wyświetl dostępność lekarzy",
+"desc": "Zobacz dostępne terminy i wygodnie zarządzaj swoimi wizytami."
+},
+"card3": {
+"title": "Zarządzaj receptami",
+"desc": "Śledź i zarządzaj danymi apteki."
+},
+"card4": {
+"title": "Bezpieczne i poufne",
+"desc": "Twoje dane medyczne są przechowywane z najwyższym poziomem bezpieczeństwa."
+}
+},
+"doctors": {
+"title": "Nasi lekarze"
+},
+"stats": {
+"title": "Nasze osiągnięcia",
+"doctors": "Lekarze",
+"patients": "Obsłużeni pacjenci",
+"appointments": "Zarezerwowane wizyty"
+},
+"testimonials": {
+"title": "Co mówią nasi pacjenci",
+"t1": {
+"quote": "„Najlepsza platforma opieki zdrowotnej, z jakiej kiedykolwiek korzystałem. Rezerwacja wizyt jest tak prosta!”",
+"author": "- Sophia Patel"
+},
+"t2": {
+"quote": "„Wydajna, niezawodna i bezpieczna! Uwielbiam, jak płynny jest ten proces.”",
+
+"author": "- James Carter"
+},
+
+"t3": {
+"quote": "„Ta platforma sprawiła, że ​​zarządzanie wizytami i receptami stało się bezstresowe.”",
+
+"author": "- Emily Watson"
+},
+
+"t4": {
+"quote": "„Przyjazna dla użytkownika i bezpieczna. Ufam tej platformie w zakresie potrzeb opieki zdrowotnej mojej rodziny.”",
+
+"author": "- Rajesh Kumar"
+},
+
+"t5": {
+"quote": "„Szybka, niezawodna i dobrze zorganizowana. Mogę znaleźć lekarzy i zarezerwować terminy w ciągu kilku minut!",
+
+"author": "- Olivia Green"
+}
+},
+
+"contact": {
+"title": "Skontaktuj się z nami",
+
+"subtitle": "Jesteśmy tutaj, aby pomóc Ci w zakresie potrzeb związanych z opieką zdrowotną.",
+
+"email": "E-mail",
+
+"phone": "Telefon",
+
+"location": "Lokalizacja",
+
+"form": {
+"name": "Twoje imię",
+
+"email": "Twój e-mail",
+
+"message": "Twoja wiadomość",
+
+"send": "Wyślij wiadomość"
+},
+
+"alert": {
+"success": "Dziękujemy, {{name}}! Twoja wiadomość została wysłana.",
+
+"error": "Wypełnij wszystkie pola przed wysłaniem."
+}
+},
+
+"footer": {
+"copy": "Lokalny system GP. Wszelkie prawa zastrzeżone."
+}
+},
+"login": {
+"back": "Powrót do strony głównej",
+"title": "Witaj ponownie",
+"subtitle": "Zaloguj się, aby kontynuować",
+"email": {
+"label": "Adres e-mail",
+"placeholder": "Wprowadź swój adres e-mail"
+},
+"password": {
+"label": "Hasło",
+"placeholder": "Wprowadź swoje hasło"
+},
+"forgot": "Zapomniałeś hasła?",
+"submit": "Zaloguj się",
+"noAccount": "Nie masz konta?",
+"signup": "Zarejestruj się",
+"success": "Logowanie zakończone powodzeniem! Przekierowywanie...",
+"error": {
+"missingFields": "Wprowadź adres e-mail i hasło.",
+"statusCheck": "Nie można sprawdzić statusu profilu. Spróbuj ponownie.",
+"noToken": "Logowanie nie powiodło się. Brak tokena lub roli received.",
+
+"invalidCredentials": "Logowanie nie powiodło się. Sprawdź swoje dane uwierzytelniające."
+}
+},
+
+"forgot": {
+"title": "Zapomniałeś hasła?",
+
+"subtitle": "Wprowadź swój adres e-mail, aby otrzymać token resetowania",
+
+"email": {
+"label": "Adres e-mail",
+
+"placeholder": "Wprowadź swój adres e-mail"
+},
+
+"submit": "Wyślij token resetowania",
+
+"back": "Powrót do logowania",
+
+"success": {
+"sent": "Jeśli ten adres e-mail istnieje, link do resetowania hasła został wysłany do Twojej skrzynki odbiorczej."
+},
+
+"error": {
+"missingEmail": "Wprowadź swój adres e-mail.",
+
+"generic": "Coś poszło nie tak. Spróbuj ponownie." }
+},
+"paymentSuccess": {
+"title": "✅ Płatność zakończona sukcesem!",
+"message": "Dziękujemy za płatność. Twoja recepta będzie wkrótce gotowa.",
+"button": "Powrót do pulpitu"
+},
+"paymentCancel": {
+"title": "❌ Płatność nie powiodła się",
+"message": "Ups! Coś poszło nie tak z Twoją płatnością.",
+"retry": "Spróbuj ponownie"
+},
+"reset": {
+"title": "Zresetuj hasło",
+"subtitle": "Wprowadź nowe hasło poniżej",
+"password": {
+"label": "Nowe hasło",
+"placeholder": "Wprowadź nowe hasło"
+},
+"confirm": {
+"label": "Potwierdź hasło",
+"placeholder": "Potwierdź nowe hasło"
+},
+"submit": "Zresetuj hasło",
+"back": "Powrót do Login",
+"success": "Twoje hasło zostało pomyślnie zresetowane.",
+"error": {
+"mismatch": "Hasła nie pasują.",
+"failed": "Nie udało się zresetować hasła. Spróbuj ponownie."
+}
+},
+"set": {
+"title": "Ustaw hasło",
+"subtitle": "Utwórz nowe hasło do swojego konta.",
+"password": {
+"label": "Nowe hasło",
+"placeholder": "Wprowadź nowe hasło"
+},
+"confirm": {
+"label": "Potwierdź hasło",
+"placeholder": "Potwierdź nowe hasło"
+},
+"submit": "Ustaw hasło",
+"back": "Powrót do logowania",
+"success": "Hasło zostało ustawione pomyślnie! Przekierowywanie do logowania...",
+"error": {
+"mismatch": "Hasła nie pasują do siebie.",
+"token": "Nieprawidłowy lub brakujący token. Użyj łącza z wiadomości e-mail.",
+"expired": "Coś poszło nie tak. Token mógł wygasnąć."
+}
+},
+"signup": {
+"title": "Utwórz konto",
+"subtitle": "Wypełnij dane, aby się zarejestrować",
+"name": {
+"label": "Imię i nazwisko",
+"placeholder": "Wprowadź swoje imię i nazwisko"
+},
+"email": {
+"label": "Adres e-mail",
+"placeholder": "Wprowadź swój adres e-mail"
+},
+"contact": {
+"label": "Numer kontaktowy",
+"placeholder": "Wprowadź swój numer telefonu"
+},
+"address": {
+"label": "Adres",
+"placeholder": "Wprowadź swój adres"
+},
+"password": {
+"label": "Hasło",
+"placeholder": "Utwórz hasło"
+},
+"submit": "Zarejestruj się",
+"loginPrompt": "Masz już konto?",
+"loginLink": "Zaloguj się",
+"success": "Rejestracja zakończona sukcesem! Zaloguj się.",
+"error": {
+"weakPassword": "Hasło musi mieć co najmniej 8 znaków i zawierać wielkie i małe litery, cyfry oraz znaki specjalne.",
+"failed": "Rejestracja zakończona niepowodzeniem. Spróbuj ponownie."
+}
+}
+}

@@ -1,0 +1,222 @@
+{
+    "home": {
+      "nav": {
+        "logo": "Local GP System",
+        "home": "Home",
+        "login": "Login",
+        "signup": "Signup",
+        "contact": "Contact Us"
+      },
+      "hero": {
+        "title": "Your Health, Our Priority",
+        "subtitle": "Book Appointments, Consult Doctors & Manage Medical Needs.",
+        "login": "Login",
+        "signup": "Sign Up"
+      },
+      "about": {
+        "title": "About Us",
+        "intro": "Local GP System is dedicated to making healthcare simple, accessible, and efficient for everyone. Our platform connects patients with trusted healthcare providers in just a few clicks, ensuring convenience and security.",
+        "point1": "Easy appointment booking with verified doctors",
+        "point2": "Real-time doctor availability tracking",
+        "point3": "Digital prescription management",
+        "point4": "Secure, private, and user-friendly interface",
+        "point5": "Designed for patients and healthcare professionals",
+        "outro": "At Local GP System, we believe in empowering communities through technology that prioritizes well-being and trust.",
+        "imageAlt": "About Local GP System"
+      },
+      "features": {
+        "title": "Why Choose Us?",
+        "card1": {
+          "title": "Easy Appointment Booking",
+          "desc": "Book appointments with doctors in just a few clicks."
+        },
+        "card2": {
+          "title": "View Doctor Availability",
+          "desc": "See available slots and manage your visits conveniently."
+        },
+        "card3": {
+          "title": "Manage Prescriptions",
+          "desc": "Track and manage pharmacy details."
+        },
+        "card4": {
+          "title": "Secure & Confidential",
+          "desc": "Your medical data is stored with top-level security."
+        }
+      },
+      "doctors": {
+        "title": "Our Doctors"
+      },
+      "stats": {
+        "title": "Our Achievements",
+        "doctors": "Doctors",
+        "patients": "Patients Served",
+        "appointments": "Appointments Booked"
+      },
+      "testimonials": {
+        "title": "What Our Patients Say",
+        "t1": {
+          "quote": "“The best healthcare platform I have ever used. Booking appointments is so easy!”",
+          "author": "- Sophia Patel"
+        },
+        "t2": {
+          "quote": "“Efficient, reliable, and secure! I love how seamless the process is.”",
+          "author": "- James Carter"
+        },
+        "t3": {
+          "quote": "“This platform has made managing appointments and prescriptions stress-free.”",
+          "author": "- Emily Watson"
+        },
+        "t4": {
+          "quote": "“User-friendly and secure. I trust this platform for my family’s healthcare needs.”",
+          "author": "- Rajesh Kumar"
+        },
+        "t5": {
+          "quote": "“Fast, reliable, and well-organized. I can find doctors and book slots in minutes!”",
+          "author": "- Olivia Green"
+        }
+      },
+      "contact": {
+        "title": "Get in Touch",
+        "subtitle": "We are here to help you with your healthcare needs.",
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location",
+        "form": {
+          "name": "Your Name",
+          "email": "Your Email",
+          "message": "Your Message",
+          "send": "Send Message"
+        },
+        "alert": {
+          "success": "Thank you, {{name}}! Your message has been sent.",
+          "error": "Please fill in all the fields before submitting."
+        }
+      },
+      "footer": {
+        "copy": "Local GP System. All rights reserved."
+      }
+    },
+  "login": {
+    "back": "Back to Home",
+    "title": "Welcome Back",
+    "subtitle": "Please login to continue",
+    "email": {
+      "label": "Email Address",
+      "placeholder": "Enter your email"
+  },
+  "password": {
+    "label": "Password",
+    "placeholder": "Enter your password"
+  },
+  "forgot": "Forgot Password?",
+  "submit": "Log In",
+  "noAccount": "Don't have an account?",
+  "signup": "Sign Up",
+  "success": "Login successful! Redirecting...",
+  "error": {
+    "missingFields": "Please enter both email and password.",
+    "statusCheck": "Unable to check profile status. Try again.",
+    "noToken": "Login failed. No token or role received.",
+    "invalidCredentials": "Login failed. Please check your credentials."
+  }
+    },
+    "forgot": {
+  "title": "Forgot Password?",
+  "subtitle": "Enter your email address to receive a reset token",
+  "email": {
+    "label": "Email Address",
+    "placeholder": "Enter your email"
+  },
+  "submit": "Send Reset Token",
+  "back": "Back to Login",
+  "success": {
+    "sent": "If this email exists, a password reset link has been sent to your inbox."
+  },
+  "error": {
+    "missingEmail": "Please enter your email.",
+    "generic": "Something went wrong. Please try again."
+  }
+},
+"paymentSuccess": {
+  "title": "✅ Payment Successful!",
+  "message": "Thank you for your payment. Your prescription will be ready shortly.",
+  "button": "Back to Dashboard"
+},
+"paymentCancel": {
+  "title": "❌ Payment Failed",
+  "message": "Oops! Something went wrong with your payment.",
+  "retry": "Try Again"
+},
+"reset": {
+  "title": "Reset Password",
+  "subtitle": "Enter your new password below",
+  "password": {
+    "label": "New Password",
+    "placeholder": "Enter new password"
+  },
+  "confirm": {
+    "label": "Confirm Password",
+    "placeholder": "Confirm new password"
+  },
+  "submit": "Reset Password",
+  "back": "Back to Login",
+  "success": "Your password has been reset successfully.",
+  "error": {
+    "mismatch": "Passwords do not match.",
+    "failed": "Failed to reset password. Please try again."
+  }
+},
+"set": {
+  "title": "Set Your Password",
+  "subtitle": "Please create a new password for your account.",
+  "password": {
+    "label": "New Password",
+    "placeholder": "Enter new password"
+  },
+  "confirm": {
+    "label": "Confirm Password",
+    "placeholder": "Confirm new password"
+  },
+  "submit": "Set Password",
+  "back": "Back to Login",
+  "success": "Password has been set successfully! Redirecting to login...",
+  "error": {
+    "mismatch": "Passwords do not match.",
+    "token": "Invalid or missing token. Please use the link from your email.",
+    "expired": "Something went wrong. The token may have expired."
+  }
+},
+"signup": {
+  "title": "Create an Account",
+  "subtitle": "Please fill in the details to sign up",
+  "name": {
+    "label": "Full Name",
+    "placeholder": "Enter your full name"
+  },
+  "email": {
+    "label": "Email Address",
+    "placeholder": "Enter your email"
+  },
+  "contact": {
+    "label": "Contact Number",
+    "placeholder": "Enter your phone number"
+  },
+  "address": {
+    "label": "Address",
+    "placeholder": "Enter your address"
+  },
+  "password": {
+    "label": "Password",
+    "placeholder": "Create a password"
+  },
+  "submit": "Sign Up",
+  "loginPrompt": "Already have an account?",
+  "loginLink": "Log In",
+  "success": "Signup successful! Please log in.",
+  "error": {
+    "weakPassword": "Password must be at least 8 characters long and contain uppercase, lowercase, numbers, and special characters.",
+    "failed": "Signup failed. Please try again."
+  }
+  }
+}
+  

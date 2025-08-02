@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<div class="full-background"></div>
+<div class="signup-container">
+  <div class="signup-card">
+    <h2>{{ 'signup.title' | translate }}</h2>
+    <p class="subtitle">{{ 'signup.subtitle' | translate }}</p>
+
+    <form (ngSubmit)="onSignup()">
+      <div class="form-group">
+        <label for="name">{{ 'signup.name.label' | translate }}</label>
+        <input type="text" id="name" [(ngModel)]="name" name="name" [placeholder]="'signup.name.placeholder' | translate" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">{{ 'signup.email.label' | translate }}</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" [placeholder]="'signup.email.placeholder' | translate" required />
+      </div>
+
+      <div class="form-group">
+        <label for="contact">{{ 'signup.contact.label' | translate }}</label>
+        <input type="tel" id="contact" [(ngModel)]="contact" name="contact" [placeholder]="'signup.contact.placeholder' | translate" required />
+      </div>
+      <div class="form-group">
+        <label for="password">{{ 'signup.password.label' | translate }}</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" [placeholder]="'signup.password.placeholder' | translate" required />
+      </div>
+
+      <button type="submit" class="btn-primary">{{ 'signup.submit' | translate }}</button>
+    </form>
+
+    <p class="login-link">
+      {{ 'signup.loginPrompt' | translate }} <a routerLink="/login">{{ 'signup.loginLink' | translate }}</a>
+    </p>
+  </div>
+</div>

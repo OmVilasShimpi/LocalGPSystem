@@ -1,0 +1,140 @@
+<div class="dashboard-background">
+  <div class="dashboard-wrapper">
+    <div class="patient-dashboard-container">
+      <div class="dashboard-header">
+        <h2>Welcome, {{ name }}!</h2>
+      </div>
+
+      <!--  Update Profile -->
+      <div style="text-align: right;">
+        <button class="update-profile-btn" [routerLink]="['/update-profile']">
+          <i class="fa fa-user-edit"></i> Update Profile
+        </button>
+      </div>
+
+      <h2>Patient Dashboard</h2>
+      <!--  Health Summary Panel -->
+      <div class="summary-panel">
+        <div class="summary-box">
+          <h4>Total Appointments</h4>
+          <p>{{ appointments.length }}</p>
+        </div>
+        <div class="summary-box">
+          <h4>Total Prescriptions</h4>
+          <p>{{ prescriptions.length }}</p>
+        </div>
+        <div class="summary-box">
+          <h4>Top Doctor</h4>
+          <p>{{ mostVisitedDoctor || 'N/A' }}</p>
+        </div>
+      </div>
+      <!--  Next Upcoming Appointment -->
+      <div *ngIf="nextAppointment" class="next-appointment-card">
+        <h4>Next Appointment</h4>
+        <p><strong>Doctor:</strong> {{ nextAppointment.doctor_name }}</p>
+        <p><strong>Date:</strong> {{ nextAppointment.date | date: 'yyyy-MM-dd' }}</p>
+        <p><strong>Time:</strong> {{ nextAppointment.start_time }} – {{ nextAppointment.end_time }}</p>
+        <p><strong>Status:</strong> {{ nextAppointment.status }}</p>
+      </div>
+
+      <!--  Appointments Section -->
+      <div class="table-card">
+        <h3>Upcoming Appointments</h3>
+        <table *ngIf="appointments.length > 0">
+          <tr>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let appt of appointments">
+            <td>{{ appt.doctor_name }}</td>
+            <td>{{ appt.date | date: 'yyyy-MM-dd' }}</td> <!-- Formats to just the date -->
+            <td>{{ appt.start_time }}</td>
+            <td>{{ appt.end_time }}</td>
+            <td>{{ appt.status}}</td>
+            <td>
+              <button class="cancel-btn" *ngIf="shouldShowCancel(appt)" (click)="cancelAppointment(appt.id)">
+                Cancel
+              </button>
+            </td>                                 
+          </tr>
+        </table>
+        <p *ngIf="appointments.length === 0">No appointments booked yet.</p>
+      </div>
+      
+      <!--  Prescriptions Section -->
+      <div class="table-card">
+        <h3>Your Prescriptions</h3>
+        <table *ngIf="prescriptions.length > 0">
+          <tr>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Medicines</th>
+            <th>Status</th>
+
+          </tr>
+          <tr *ngFor="let pres of prescriptions">
+            <td>{{ pres.doctor_name }}</td>
+            <td>{{ pres.date_prescribed | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ pres.medicines }}</td>
+            <td>
+              <span [ngClass]="{
+                'tag-ready': pres.status === 'Ready for Pickup',
+                'tag-paid': pres.status === 'Paid',
+                'tag-dispensed': pres.status === 'dispensed',
+                'tag-collected': pres.status === 'collected'
+              }">
+                {{ pres.status }}
+              </span>
+            </td>            
+          </tr>
+        </table>
+        <p *ngIf="prescriptions.length === 0">No prescriptions found.</p>
+      </div>
+      <!--  Medical History Section -->
+<div class="table-card">
+  <h3>Your Medical History</h3>
+  <table *ngIf="medicalHistory.length > 0">
+    <tr>
+      <th>Date</th>
+      <th>Doctor</th>
+      <th>Diagnosis</th>
+      <th>Treatment</th>
+      <th>Medicines</th>
+      <th>Notes</th>
+    </tr>
+    <tr *ngFor="let entry of medicalHistory">
+      <td>{{ entry.date | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ entry.doctor_name }}</td>
+      <td>{{ entry.diagnosis }}</td>
+      <td>{{ entry.treatment }}</td>
+      <td>{{ entry.medicines }}</td>
+      <td>{{ entry.notes }}</td>
+    </tr>
+  </table>
+  <p *ngIf="medicalHistory.length === 0">No medical history found.</p>
+</div>
+
+      <!--  Book Appointment -->
+      <div class="book-appointment">
+        <button type="button" class="btn-primary" [routerLink]="['/book-appointment']">
+          <i class="fa fa-calendar-check"></i> Book Appointment
+        </button>
+      </div>
+
+      <!--  Success/Error Messages -->
+      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+      <!--  Logout -->
+      <div class="logout-container">
+        <button class="logout-btn" (click)="logout()">
+          <i class="fa fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

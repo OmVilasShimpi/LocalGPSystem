@@ -1,0 +1,99 @@
+<div class="dashboard-background">
+  <div class="dashboard-wrapper">
+    <div class="admin-dashboard-container">
+  <h2>Admin Dashboard</h2>
+
+  <!-- Add Doctor Form -->
+  <div class="form-card">
+    <h3>Add Doctor</h3>
+    <form (ngSubmit)="addUser('doctor')">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="newDoctor.name" name="doctorName" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="newDoctor.email" name="doctorEmail" required />
+      </div>
+      <button type="submit" class="btn-primary">Add Doctor</button>
+    </form>
+  </div>
+
+  <!-- Add Pharmacist Form -->
+  <div class="form-card">
+    <h3>Add Pharmacist</h3>
+    <form (ngSubmit)="addUser('pharmacist')">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="newPharmacist.name" name="pharmacistName" required />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="newPharmacist.email" name="pharmacistEmail" required />
+      </div>
+      <button type="submit" class="btn-primary">Add Pharmacist</button>
+    </form>
+  </div>
+
+  <!-- All Doctors Table -->
+  <div class="table-card">
+    <h3>Doctors</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let doctor of doctors">
+        <td>{{ doctor.name }}</td>
+        <td>{{ doctor.email }}</td>
+        <td>
+          <button class="btn-danger" (click)="deleteUser(doctor.id)">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- All Pharmacists Table -->
+  <div class="table-card">
+    <h3>Pharmacists</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let pharmacist of pharmacists">
+        <td>{{ pharmacist.name }}</td>
+        <td>{{ pharmacist.email }}</td>
+        <td>
+          <button class="btn-danger" (click)="deleteUser(pharmacist.id)">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- All Patients Table -->
+  <div class="table-card">
+    <h3>Patients</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+      </tr>
+      <tr *ngFor="let patient of patients">
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.email }}</td>
+        <td>{{ patient.contact_number }}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="logout-container">
+    <button class="logout-btn" (click)="logout()">
+      <i class="fa fa-sign-out-alt"></i> Logout
+    </button>
+  </div>  
+  </div>
+  </div>
+</div>

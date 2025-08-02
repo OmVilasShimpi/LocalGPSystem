@@ -1,0 +1,221 @@
+{
+"home": {
+"nav": {
+"logo": "Système local de médecins généralistes",
+"home": "Accueil",
+"login": "Connexion",
+"signup": "Inscription",
+"contact": "Nous contacter"
+},
+"hero": {
+"title": "Votre santé, notre priorité",
+"subtitle": "Prendre rendez-vous, consulter des médecins et gérer vos besoins médicaux.",
+"login": "Connexion",
+"signup": "Inscription"
+},
+"about": {
+"title": "À propos de nous",
+"intro": "Système local de médecins généralistes s'engage à rendre les soins de santé simples, accessibles et efficaces pour tous. Notre plateforme met les patients en relation avec des professionnels de santé de confiance en quelques clics, garantissant commodité et sécurité.",
+"point1": "Prise de rendez-vous facile avec des médecins certifiés",
+"point2": "Suivi des disponibilités des médecins en temps réel",
+"point3": "Gestion numérique des ordonnances",
+"point4": "Interface sécurisée, privée et conviviale",
+"point5": "Conçu pour les patients et les professionnels de santé",
+"outro": "Chez Local GP System, nous croyons en l'autonomisation des communautés grâce à une technologie qui privilégie le bien-être et la confiance.",
+"imageAlt": "À propos de Local GP System"
+},
+"features": {
+"title": "Pourquoi nous choisir ?",
+"card1": {
+"title": "Prise de rendez-vous facile",
+"desc": "Prenez rendez-vous avec des médecins en quelques clics."
+},
+"card2": {
+"title": "Consultez les disponibilités des médecins",
+"desc": "Consultez les créneaux disponibles et gérez vos consultations facilement."
+},
+"card3": {
+"title": "Gérer les ordonnances",
+"desc": "Suivre et gérer les informations de votre pharmacie."
+},
+"card4": {
+"title": "Sécurisé et confidentiel",
+"desc": "Vos données médicales sont stockées avec un niveau de sécurité optimal."
+}
+},
+"doctors": {
+"title": "Nos médecins"
+},
+"stats": {
+"title": "Nos réalisations",
+"doctors": "Médecins",
+"patients": "Patients pris en charge",
+"appointments": "Rendez-vous pris"
+},
+"testimonials": {
+"title": "Ce que disent nos patients",
+"t1": {
+"quote": "La meilleure plateforme de soins de santé que j'ai jamais utilisée. Prendre des rendez-vous est tellement facile!",
+"author": "- Sophia Patel"
+},
+"t2": {
+"quote": " Efficace, fiable et sécurisé ! J'apprécie la fluidité du processus. ",
+"auteur": "- James Carter"
+},
+"t3": {
+"quote": "Cette plateforme a simplifié la gestion des rendez-vous et des ordonnances.",
+"auteur": "- Emily Watson"
+},
+"t4": {
+"quote": "Conviviale et sécurisée. Je fais confiance à cette plateforme pour les besoins de santé de ma famille.",
+"auteur": "- Rajesh Kumar"
+},
+"t5": {
+"quote": "Rapide, fiable et bien organisé. Je peux trouver des médecins et réserver des créneaux en quelques minutes.",
+"author": "- Olivia Green"
+}
+},
+"contact": {
+"title": "Contactez-nous",
+"subtitle": "Nous sommes là pour vous aider avec vos besoins de santé.",
+"email": "E-mail",
+"phone": "Téléphone",
+"location": "Localisation",
+"form": {
+"name": "Votre nom",
+"email": "Votre e-mail",
+"message": "Votre message",
+"send": "Envoyer un message"
+},
+"alert": {
+"success": "Merci, {{name}} ! Votre message a été envoyé.",
+"error": "Veuillez remplir tous les champs avant de soumettre."
+}
+},
+"footer": {
+"copy": "Système de médecine générale local. Tous droits réservés."
+}
+},
+"login": {
+"back": "Retour à l'accueil",
+"title": "Bienvenue",
+"subtitle": "Veuillez vous connecter pour continuer",
+"email": {
+"label": "Adresse e-mail",
+"placeholder": "Entrez votre e-mail"
+},
+"password": {
+"label": "Mot de passe",
+"placeholder": "Entrez votre mot de passe"
+},
+"forgot": "Mot de passe oublié ?",
+"submit": "Connexion",
+"noAccount": "Vous n'avez pas de compte ?",
+"signup": "Inscription",
+"success": "Connexion réussie ! Redirection…",
+"error": {
+"missingFields": "Veuillez saisir votre e-mail et votre mot de passe.",
+"statusCheck": "Impossible de vérifier l'état du profil. Réessayer.",
+"noToken": "Échec de la connexion. Aucun jeton ni rôle reçu.",
+"invalidCredentials": "Échec de la connexion. Veuillez vérifier vos identifiants."
+}
+},
+"forgot": {
+"title": "Mot de passe oublié ?",
+"subtitle": "Saisissez votre adresse e-mail pour recevoir un jeton de réinitialisation",
+"email": {
+"label": "Adresse e-mail",
+"placeholder": "Saisissez votre adresse e-mail"
+},
+"submit": "Envoyer un jeton de réinitialisation",
+"back": "Retour à la connexion",
+"success": {
+"sent": "Si cet e-mail existe, un lien de réinitialisation de mot de passe a été envoyé dans votre boîte de réception."
+},
+"error": {
+"missingEmail": "Veuillez saisir votre adresse e-mail.",
+"generic": "Une erreur s'est produite. Veuillez réessayer."
+}
+},
+"paymentSuccess": {
+"title": "✅ Paiement réussi !",
+"message": "Merci pour votre paiement. Votre ordonnance sera bientôt prête.",
+"button": "Retour au tableau de bord"
+},
+"paymentCancel": {
+"title": "❌ Paiement échoué",
+"message": "Oups ! Une erreur s'est produite lors de votre paiement.",
+"retry": "Réessayer"
+},
+"reset": {
+"title": "Réinitialiser le mot de passe",
+"subtitle": "Saisissez votre nouveau mot de passe ci-dessous",
+"password": {
+"label": "Nouveau mot de passe",
+"placeholder": "Saisissez un nouveau mot de passe"
+},
+"confirm": {
+"label": "Confirmer le mot de passe",
+"placeholder": "Confirmer le nouveau mot de passe"
+},
+"submit": "Réinitialiser le mot de passe",
+"back": "Retour à la connexion",
+"success": "Votre mot de passe a été réinitialisé avec succès.",
+"error": {
+"mismatch": "Les mots de passe ne correspondent pas.",
+"failed": "Échec de la réinitialisation du mot de passe. Veuillez réessayer."
+}
+},
+"set": {
+"title": "Définissez votre mot de passe",
+"subtitle": "Veuillez créer un nouveau mot de passe pour votre compte.",
+"password": {
+"label": "Nouveau mot de passe",
+"placeholder": "Saisissez le nouveau mot de passe"
+},
+"confirm": {
+"label": "Confirmer le mot de passe",
+"placeholder": "Confirmer le nouveau mot de passe"
+},
+"submit": "Définir le mot de passe",
+"back": "Retour à la connexion",
+"success": "Le mot de passe a été défini avec succès ! Redirection vers la connexion...",
+"error": {
+"mismatch": "Les mots de passe ne correspondent pas.",
+"token": "Jeton invalide ou manquant. Veuillez utiliser le lien de votre e-mail.",
+"expired": "Une erreur s'est produite. Le jeton a peut-être expiré."
+}
+},
+"signup": {
+"title": "Créer un compte",
+"subtitle": "Veuillez renseigner les informations pour vous inscrire",
+"name": {
+"label": "Nom complet",
+"placeholder": "Entrez votre nom complet"
+},
+"email": {
+"label": "Adresse e-mail",
+"placeholder": "Entrez votre e-mail"
+},
+"contact": {
+"label": "Numéro de contact",
+"placeholder": "Entrez votre numéro de téléphone"
+},
+"address": {
+"label": "Adresse",
+"placeholder": "Entrez votre adresse"
+},
+"password": {
+"label": "Mot de passe",
+"placeholder": "Créer un mot de passe"
+},
+"submit": "S'inscrire",
+"loginPrompt": "Vous avez déjà un compte ?",
+"loginLink": "Connexion",
+"success": "Inscription réussie ! Veuillez vous connecter.",
+"error": {
+"weakPassword": "Le mot de passe doit comporter au moins 8 caractères et contenir des majuscules, des minuscules, des chiffres et des caractères spéciaux.",
+"failed": "L'inscription a échoué. Veuillez réessayer."
+}
+}
+}

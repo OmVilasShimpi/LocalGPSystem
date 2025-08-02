@@ -1,0 +1,95 @@
+<div class="dashboard-background">
+  <div class="booking-container">
+    
+    <!--  Back Button -->
+    <button class="back-button" routerLink="/patient-dashboard" aria-label="Back to Dashboard">
+      <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+    </button>
+
+    <h2>Book an Appointment</h2>
+    <div *ngIf="message" class="success-message">{{ message }}</div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+
+    <!--  Filters Panel -->
+    <div class="filters-panel">
+      <div class="filter-section">
+        <label for="address">Search by Address or Pincode:</label>
+        <input
+          id="address"
+          type="text"
+          [(ngModel)]="searchAddress"
+          placeholder="Enter area or pincode"
+          aria-label="Search by address"
+        />
+        <button (click)="searchDoctorsByAddress()" aria-label="Search Doctors">
+          <i class="fa fa-search"></i> Search
+        </button>
+      </div>
+
+      <div class="filter-section">
+        <label for="doctor">Select Doctor:</label>
+        <select
+          id="doctor"
+          [(ngModel)]="selectedDoctorId"
+          (change)="onDoctorOrDateChange()"
+          aria-label="Select Doctor"
+        >
+          <option value="" disabled selected>Select Doctor</option>
+          <option *ngFor="let doc of filteredDoctors" [value]="doc.id">
+            {{ doc.name }} – {{ doc.clinic_address }}
+          </option>
+        </select>
+      </div>
+
+      <div class="filter-section">
+        <label for="date">Select Date:</label>
+        <input
+          id="date"
+          type="date"
+          [(ngModel)]="selectedDate"
+          [min]="minDate"
+          (change)="onDoctorOrDateChange()"
+          aria-label="Select appointment date"
+        />
+      </div>
+      <div class="filter-section">
+        <label for="preferred-time">Filter by Time Range:</label>
+        <div class="filter-time">
+          <label>Start Time:</label>
+          <input type="time" [(ngModel)]="preferredStartTime" (change)="filterSlotsByTime()" />
+          <label>End Time:</label>
+          <input type="time" [(ngModel)]="preferredEndTime" (change)="filterSlotsByTime()" />
+          <button (click)="clearTimeFilters()" class="btn-secondary" style="margin-top: 10px;">🧹 Clear Time Filters</button>
+        </div>
+      </div>            
+    </div>  
+<!--  Slots Section -->
+<div *ngIf="selectedDate && !isLoadingSlots" class="slots-section">
+  <ng-container *ngIf="availableSlots.length > 0; else noSlotsTemplate">
+    <h3>Available Slots on {{ selectedDate }}</h3>
+    <div class="slots-grid">
+      <div *ngFor="let slot of availableSlots" class="slot-card" [ngClass]="{ 'next-slot': slot.isNext }">
+        <span *ngIf="slot.isNext" class="next-badge">Next Available</span>      
+        <p><strong>Time:</strong> {{ formatToAmPm(slot.start_time) }} - {{ formatToAmPm(slot.end_time) }}</p>
+        <div class="custom-tooltip">
+          20-minute appointment with {{ getDoctorName(slot.doctor_id) }}
+        </div>
+        <button (click)="bookAppointment(slot)" aria-label="Book Appointment">
+          <i class="fa-solid fa-calendar-check"></i> Book
+        </button>
+      </div>
+    </div>
+  </ng-container>
+<!-- Spinner Display -->
+<div *ngIf="isLoadingSlots" class="loading-message">
+  <i class="fa fa-spinner fa-spin"></i> Loading slots...
+</div>
+  <!--  Empty State -->
+  <ng-template #noSlotsTemplate>
+    <p class="no-slots-message">
+      No slots available for the selected date.
+    </p>
+  </ng-template>
+</div>
+  </div>
+</div>

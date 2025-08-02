@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<div class="top-back-button">
+  <button class="back-button" routerLink="/home">
+    <i class="fa-solid fa-arrow-left"></i> {{ 'login.back' | translate }}
+  </button>
+</div>
+
+<div class="full-background"></div>
+<div class="login-container">
+  <div class="login-card">
+    <h2>{{ 'login.title' | translate }}</h2>
+    <p class="subtitle">{{ 'login.subtitle' | translate }}</p>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>    
+
+    <form (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label for="email">{{ 'login.email.label' | translate }}</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" [placeholder]="'login.email.placeholder' | translate" required autocomplete="off">
+      </div>
+
+      <div class="form-group password-group">
+        <label for="password">{{ 'login.password.label' | translate }}</label>
+        <div class="password-wrapper">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" [(ngModel)]="password" name="password" [placeholder]="'login.password.placeholder' | translate" required autocomplete="off" />
+          <i class="fa-solid" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'" (click)="togglePassword()"></i>
+        </div>
+        <a class="forgot-link" routerLink="/forget-password">{{ 'login.forgot' | translate }}</a>
+      </div>           
+
+      <button type="submit" class="btn-primary">{{ 'login.submit' | translate }}</button>
+    </form>
+
+    <p class="signup-link">
+      {{ 'login.noAccount' | translate }}
+      <a routerLink="/signup">{{ 'login.signup' | translate }}</a>
+    </p>
+  </div>  
+</div>

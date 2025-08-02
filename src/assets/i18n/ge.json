@@ -1,0 +1,221 @@
+{
+"home": {
+"nav": {
+"logo": "Hausarztsystem",
+"home": "Startseite",
+"login": "Anmelden",
+"signup": "Registrieren",
+"contact": "Kontakt"
+},
+"hero": {
+"title": "Ihre Gesundheit, unsere Priorität",
+"subtitle": "Termine buchen, Ärzte konsultieren und medizinische Bedürfnisse verwalten",
+"login": "Anmelden",
+"signup": "Registrieren"
+},
+"about": {
+"title": "Über uns",
+"intro": "Hausarztsystem hat es sich zum Ziel gesetzt, die Gesundheitsversorgung für alle einfach, zugänglich und effizient zu gestalten. Unsere Plattform verbindet Patienten mit nur wenigen Klicks mit vertrauenswürdigen Gesundheitsdienstleistern und sorgt so für Komfort und Sicherheit.",
+"point1": "Einfache Terminbuchung bei verifizierten Ärzten",
+"point2": "Echtzeit-Verfügbarkeitsverfolgung von Ärzten",
+"point3": "Digitales Rezeptmanagement",
+"point4": "Sichere, vertrauliche und benutzerfreundliche Oberfläche",
+"point5": "Entwickelt für Patienten und medizinisches Fachpersonal",
+"outro": "Wir bei Local GP System glauben daran, Gemeinschaften durch Technologie zu stärken, die Wohlbefinden und Vertrauen in den Vordergrund stellt.",
+"imageAlt": "Über Local GP System"
+},
+"features": {
+"title": "Warum Sie sich für uns entscheiden sollten?",
+"card1": {
+"title": "Einfache Terminbuchung",
+"desc": "Buchen Sie Arzttermine mit nur wenigen Klicks."
+},
+"card2": {
+"title": "Arztverfügbarkeit anzeigen",
+"desc": "Verfügbare Termine einsehen und Ihre Termine bequem verwalten."
+},
+"card3": {
+"title": "Rezepte verwalten",
+"desc": "Apothekendaten verfolgen und verwalten."
+},
+"card4": {
+"title": "Sicher & vertraulich",
+"desc": "Ihre medizinischen Daten werden mit höchster Sicherheit gespeichert."
+}
+},
+"doctors": {
+"title": "Unsere Ärzte"
+},
+"stats": {
+"title": "Unsere Erfolge",
+"doctors": "Ärzte",
+"patients": "Betreute Patienten",
+"appointments": "Gebuchte Termine"
+},
+"testimonials": {
+"title": "Was unsere Patienten sagen",
+"t1": {
+"quote": "Die beste Gesundheitsplattform, die ich je genutzt habe. Terminbuchungen sind so einfach!",
+"author": "- Sophia Patel"
+},
+"t2": {
+"quote": "Effizient, zuverlässig und sicher! Ich bin begeistert von der reibungslosen Abwicklung.“",
+"author": "- James Carter"
+},
+"t3": {
+"quote": "„Diese Plattform macht die Termin- und Rezeptverwaltung stressfrei.“",
+"author": "- Emily Watson"
+},
+"t4": {
+"quote": "„Benutzerfreundlich und sicher. Ich vertraue dieser Plattform für die Gesundheitsversorgung meiner Familie.“",
+"author": "- Rajesh Kumar"
+},
+"t5": {
+"quote": "Schnell, zuverlässig und gut organisiert.“ Ich finde Ärzte und buche Termine in wenigen Minuten!",
+"author": "- Olivia Green"
+}
+},
+"contact": {
+"title": "Kontakt",
+"subtitle": "Wir unterstützen Sie gerne bei Ihren Gesundheitsbedürfnissen.",
+"email": "E-Mail",
+"phone": "Telefon",
+"location": "Standort",
+"form": {
+"name": "Ihr Name",
+"email": "Ihre E-Mail",
+"message": "Ihre Nachricht",
+"send": "Nachricht senden"
+},
+"alert": {
+"success": "Vielen Dank, {{name}}! Ihre Nachricht wurde gesendet.",
+"error": "Bitte füllen Sie alle Felder aus, bevor Sie sie absenden."
+}
+},
+"footer": {
+"copy": "Lokales Hausarztsystem. Alle Rechte vorbehalten."
+}
+},
+"login": {
+"back": "Zurück zur Startseite",
+"title": "Willkommen zurück",
+"subtitle": "Bitte anmelden, um fortzufahren",
+"email": {
+"label": "E-Mail-Adresse",
+"placeholder": "E-Mail-Adresse eingeben"
+},
+"password": {
+"label": "Passwort",
+"placeholder": "Passwort eingeben"
+},
+"forgot": "Passwort vergessen?",
+"submit": "Anmelden",
+"noAccount": "Sie haben noch kein Konto?",
+"signup": "Registrieren",
+"success": "Anmeldung erfolgreich! Weiterleitung...",
+"error": {
+"missingFields": "Bitte geben Sie E-Mail-Adresse und Passwort ein.",
+"statusCheck": "Profilstatus konnte nicht überprüft werden. Versuchen Sie es erneut.",
+"noToken": "Anmeldung fehlgeschlagen. Kein Token oder keine Rolle erhalten.",
+"invalidCredentials": "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten."
+}
+},
+"forgot": {
+"title": "Passwort vergessen?",
+"subtitle": "Geben Sie Ihre E-Mail-Adresse ein, um ein Reset-Token zu erhalten.",
+"email": {
+"label": "E-Mail-Adresse",
+"placeholder": "Geben Sie Ihre E-Mail-Adresse ein."
+},
+"submit": "Token zum Zurücksetzen senden",
+"back": "Zurück zum Login",
+"success": {
+"sent": "Falls diese E-Mail-Adresse existiert, wurde ein Link zum Zurücksetzen des Passworts an Ihren Posteingang gesendet."
+},
+"error": {
+"missingEmail": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
+"generic": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+}
+},
+"paymentSuccess": {
+"title": "✅ Zahlung erfolgreich!",
+"message": "Vielen Dank für Ihre Zahlung. Ihr Rezept wird in Kürze verfügbar sein.",
+"button": "Zurück zum Dashboard"
+},
+"paymentCancel": {
+"title": "❌ Zahlung fehlgeschlagen",
+"message": "Ups! Bei Ihrer Zahlung ist ein Fehler aufgetreten.",
+"retry": "Erneut versuchen"
+},
+"reset": {
+"title": "Passwort zurücksetzen",
+"subtitle": "Geben Sie unten Ihr neues Passwort ein",
+"password": {
+"label": "Neues Passwort",
+"placeholder": "Neues Passwort eingeben"
+},
+"confirm": {
+"label": "Passwort bestätigen",
+"placeholder": "Neues Passwort bestätigen"
+},
+"submit": "Passwort zurücksetzen",
+"back": "Zurück zum Login",
+"success": "Ihr Passwort wurde erfolgreich zurückgesetzt.",
+"error": {
+"mismatch": "Passwörter stimmen nicht überein Übereinstimmung.",
+"failed": "Passwort konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut."
+}
+},
+"set": {
+"title": "Passwort festlegen",
+"subtitle": "Bitte erstellen Sie ein neues Passwort für Ihr Konto.",
+"password": {
+"label": "Neues Passwort",
+"placeholder": "Neues Passwort eingeben"
+},
+"confirm": {
+"label": "Passwort bestätigen",
+"placeholder": "Neues Passwort bestätigen"
+},
+"submit": "Passwort festlegen",
+"back": "Zurück zum Login",
+"success": "Passwort erfolgreich festgelegt! Weiterleitung zum Login...",
+"error": {
+"mismatch": "Passwörter stimmen nicht überein.",
+"token": "Ungültiges oder fehlendes Token. Bitte verwenden Sie den Link aus Ihrer E-Mail.",
+"expired": "Ein Fehler ist aufgetreten. Das Token ist möglicherweise abgelaufen."
+}
+},
+"signup": {
+"title": "Konto erstellen",
+"subtitle": "Bitte füllen Sie die Anmeldedaten aus",
+"name": {
+"label": "Vollständiger Name",
+"placeholder": "Geben Sie Ihren vollständigen Namen ein"
+},
+"email": {
+"label": "E-Mail-Adresse",
+"placeholder": "Geben Sie Ihre E-Mail-Adresse ein"
+},
+"contact": {
+"label": "Kontaktnummer",
+"placeholder": "Geben Sie Ihre Telefonnummer ein"
+},
+"address": {
+"label": "Adresse",
+"placeholder": "Geben Sie Ihre Adresse ein"
+},
+"password": {
+"label": "Passwort",
+"placeholder": "Passwort erstellen"
+},
+"submit": "Anmelden",
+"loginPrompt": "Besitzen Sie bereits ein Konto?",
+"loginLink": "Anmelden",
+"success": "Anmeldung erfolgreich! Bitte anmelden.",
+"error": {
+"weakPassword": "Das Passwort muss mindestens 8 Zeichen lang sein und Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen enthalten.",
+"failed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut."
+}
+}
+}

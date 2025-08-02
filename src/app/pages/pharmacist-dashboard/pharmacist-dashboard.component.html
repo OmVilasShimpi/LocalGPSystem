@@ -1,0 +1,197 @@
+<div class="dashboard-background">
+  <div class="dashboard-wrapper">
+    <div class="doctor-dashboard-container">
+
+      <!-- Pharmacist Welcome -->
+      <div class="dashboard-header">
+        <h2 class="dashboard-title">Pharmacist Dashboard</h2>
+        <div class="header-right">
+          <p class="datetime">Hello, {{ pharmacistData.name }}</p>
+          <button *ngIf="isProfileComplete && !showProfileForm" (click)="showProfileForm = true" class="btn-primary small-btn">
+            🖊️ Update Profile
+          </button>
+        </div>
+      </div>
+            <!--  Pharmacist Stats -->
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <i class="fa fa-pills stat-icon"></i>
+          <h4>Assigned</h4>
+          <p>{{ prescriptions.length }}</p>
+        </div>
+        <div class="stat-card">
+          <i class="fa fa-warehouse stat-icon"></i>
+          <h4>In Stock</h4>
+          <p>{{ inventory.length }}</p>
+        </div>
+        <div class="stat-card">
+          <i class="fa fa-check-circle stat-icon"></i>
+          <h4>Dispensed</h4>
+          <p>{{ dispensedCount }}</p>
+        </div>
+      </div>
+      <!-- Profile Form -->
+      <div *ngIf="showProfileForm" class="card form-card">
+        <h3><i class="fa fa-user-cog"></i> Your Profile</h3>
+        <div class="form-group">
+          <label>License Number</label>
+          <input type="text" [(ngModel)]="updatedData.license_number" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Store Name</label>
+          <input type="text" [(ngModel)]="updatedData.store_name" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Store Address</label>
+          <input type="text" [(ngModel)]="updatedData.store_address" class="form-control" />
+        </div>
+        <div class="form-group">
+        <label>Store Postcode</label>
+        <input type="text" [(ngModel)]="updatedData.store_postcode" class="form-control" placeholder="e.g., LE4 5HN" />
+        </div>
+        <div class="form-buttons">
+          <button (click)="updateProfile()" class="btn-primary">💾 Save Profile</button>
+          <button (click)="showProfileForm = false" class="btn-danger">Cancel</button>
+        </div>
+      </div>
+
+      <!--  Prescription Table (if no patient selected) -->
+      <div class="card table-card" *ngIf="!selectedPatientId">
+        <h3><i class="fa fa-pills"></i> Assigned Prescriptions</h3>
+        <table *ngIf="prescriptions.length > 0">
+          <thead>
+            <tr>
+              <th>Patient</th>
+              <th>Medicines</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prescription of prescriptions">
+              <td>
+                <span class="clickable" (click)="selectPatient(prescription.patient_id)">
+                  {{ prescription.patient_name }} 
+                </span>
+              </td>
+              <td>{{ prescription.medicines }}</td>
+              <td>{{ prescription.status }}</td>
+              <td>
+                <button *ngIf="prescription.status === 'Ready for Pickup'" (click)="selectPrescription(prescription)" class="btn-secondary">
+                  🖍️ Update
+                </button>
+                <button *ngIf="prescription.status === 'dispensed'" (click)="markAsPaid(prescription.id)" class="btn-primary small-btn">
+                  💵 Mark as Paid
+                </button>
+                <button *ngIf="prescription.status === 'Paid'" (click)="markAsCollected(prescription.id)" class="btn-primary small-btn">
+                  📦 Mark Collected
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p *ngIf="prescriptions.length === 0" class="empty-state">
+          <i class="fa fa-box-open"></i> No prescriptions available yet.
+        </p>
+      </div>
+
+      <!--  Update Selected Prescription -->
+      <div *ngIf="selectedPrescriptionId" class="card form-card">
+        <h4><i class="fa fa-file-invoice-dollar"></i> Update Payment Info</h4>
+        <div class="form-group">
+          <label>Payment Note</label>
+          <textarea name="payment_note" [(ngModel)]="paymentNote" rows="3" class="form-control" placeholder="e.g., £200 via UPI or cash."></textarea>
+        </div>
+        <div class="form-buttons">
+          <button (click)="updatePrescriptionStatus()" class="btn-primary">✅ Mark as Dispensed</button>
+          <button (click)="selectedPrescriptionId = null" class="btn-danger">Cancel</button>
+        </div>
+      </div>
+
+      <!--  Patient Prescription History (if patient selected) -->
+      <div *ngIf="selectedPatientId" class="card patient-details">
+        <h4>Prescription History for {{ selectedPatientName }}</h4>
+
+        <table class="mini-table">
+          <thead>
+            <tr>
+              <th>Medicines</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pres of patientPrescriptions">
+              <td>{{ pres.medicines }}</td>
+              <td>{{ pres.status }}</td>
+              <td>{{ pres.date_prescribed | date: 'yyyy-MM-dd' }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <button class="btn-danger" (click)="closePatientView()">Close</button>
+        </div>
+      </div>
+      <div style="text-align: right; margin-bottom: 10px;">
+        <label for="sortInventory" style="margin-right: 10px; font-weight: 500;">Sort by:</label>
+        <select id="sortInventory" [(ngModel)]="sortOption" (change)="sortInventory()" class="form-control" style="width: 200px; display: inline-block;">
+          <option value="default">Default</option>
+          <option value="asc">Quantity: Low to High</option>
+          <option value="desc">Quantity: High to Low</option>
+        </select>
+      </div>      
+      <!--  Pharmacy Inventory Section -->
+<div class="card table-card" style="margin-top: 30px;" *ngIf="inventory.length > 0">
+  <h3><i class="fa fa-warehouse"></i> Pharmacy Medicine Inventory</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Medicine Name</th>
+        <th>Quantity Available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of inventory">
+        <tr *ngIf="item.quantity > 0" [ngClass]="{ 'low-stock': item.quantity < 5 }">
+          <td>{{ item.medicine_name }}</td>
+          <td>
+            {{ item.quantity }}
+            <span *ngIf="item.quantity < 6" class="stock-warning">⚠️ Low Stock</span>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<!-- If inventory is completely empty -->
+<div *ngIf="inventory.length === 0" class="card empty-state">
+  <p><i class="fa fa-warehouse"></i> No medicines available in inventory yet.</p>
+</div>
+
+
+      <!--  Logout -->
+      <div class="logout-container">
+        <button (click)="logout()" class="logout-btn">
+          <i class="fa fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 🔔 Toast Messages -->
+<div *ngIf="successMessage || errorMessage" class="toast-overlay">
+  <div
+    class="toast-center"
+    [ngClass]="{
+      'toast-success': successMessage,
+      'toast-error': errorMessage
+    }"
+  >
+    {{ successMessage || errorMessage }}
+  </div>
+</div>

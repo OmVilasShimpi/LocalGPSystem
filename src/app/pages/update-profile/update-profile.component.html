@@ -1,0 +1,30 @@
+<div class="update-profile-container">
+  <h2 *ngIf="step === 1">Step 1: Enter Your Address</h2>
+  <h2 *ngIf="step === 2">Step 2: Select Preferred Pharmacy</h2>
+
+  <div *ngIf="step === 1">
+    <label>Address:</label>
+    <input [(ngModel)]="address" placeholder="Address" required />
+
+    <label>City:</label>
+    <input [(ngModel)]="city" placeholder="City" required />
+
+    <label>Pincode:</label>
+    <input [(ngModel)]="pincode" placeholder="Pincode" required />
+
+    <button (click)="submitAddress()">Submit Address</button>
+  </div>
+
+  <div *ngIf="step === 2">
+    <label>Preferred Pharmacy:</label>
+    <select [(ngModel)]="preferred_pharmacy_id" required>
+      <option *ngFor="let pharmacy of pharmacies" [value]="pharmacy.id">
+        {{ pharmacy.store_name }} - {{ pharmacy.store_address }}
+      </option>      
+    </select>
+
+    <button (click)="submitPharmacy()">Save Preferred Pharmacy</button>
+  </div>
+
+  <p class="error" *ngIf="message">{{ message }}</p>
+</div>

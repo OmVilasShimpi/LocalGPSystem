@@ -1,0 +1,296 @@
+<div class="dashboard-background">
+  <div class="dashboard-wrapper">
+    <div class="doctor-dashboard-container">
+
+      <!--  Live Date + Time -->
+      <div class="dashboard-header">
+        <h3 class="dashboard-title">👋 Welcome,  {{ doctorData.name }}</h3>
+        <p class="welcome-message"></p>
+        <p class="datetime">🗓️ {{ today | date:'fullDate' }} | 🕒 {{ currentTime }}</p>
+      </div>
+
+      <!--  Stats -->
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <i class="fa fa-users stat-icon"></i>
+          <h4>Total Patients</h4>
+          <p>{{ stats.totalPatients }}</p>
+        </div>
+        <div class="stat-card">
+          <i class="fa fa-calendar-alt stat-icon"></i>
+          <h4>Slots This Week</h4>
+          <p>{{ stats.totalSlots }}</p>
+        </div>
+        <div class="stat-card">
+          <i class="fa fa-check-circle stat-icon"></i>
+          <h4>Completed</h4>
+          <p>{{ stats.completedAppointments }}</p>
+        </div>
+      </div>
+
+      <!--  Weekly Overview Placeholder -->
+      <div class="card weekly-overview">
+        <h3><i class="fa fa-calendar-week"></i> Weekly Availability</h3>
+      
+        <p *ngIf="weeklySlots.length > 0">
+          You have <strong>{{ weeklySlots.length }}</strong> slots available this week.
+        </p>
+      
+        <table class="mini-table" *ngIf="weeklySlots.length > 0">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Start</th>
+              <th>End</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let slot of weeklySlots" [ngClass]="{
+              'row-today': isToday(slot.date),
+              'row-tomorrow': isTomorrow(slot.date)
+            }">
+          <td>
+            {{ slot.date }}
+            <span *ngIf="isToday(slot.date)" class="badge badge-today">Today</span>
+            <span *ngIf="isTomorrow(slot.date)" class="badge badge-tomorrow">Tomorrow</span>
+          </td>
+          <td>{{ slot.start_time }}</td>
+          <td>{{ slot.end_time }}</td>
+        </tr>        
+          </tbody>
+        </table>
+      
+        <div *ngIf="weeklySlots.length === 0" class="empty-state-suggestion">
+          <i class="fa fa-lightbulb"></i> You haven’t added any slots this week.
+        </div>
+      </div>
+      
+
+      <!--  Alert Messages -->
+      <div *ngIf="successMessage" class="alert-message alert-success">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="alert-message alert-error">{{ errorMessage }}</div>
+      <div *ngIf="infoMessage" class="alert-message alert-info">{{ infoMessage }}</div>
+
+      <!-- Profile Summary -->
+      <div class="doctor-profile-card">
+        <div class="avatar-circle">
+          <i class="fa fa-user-md"></i>
+        </div>
+        <div class="profile-details">
+          <h3>{{ doctorData.name }}</h3>
+          <p><strong><i class="fa fa-heartbeat"></i> Specialization:</strong> {{ doctorData.specialization }}</p>
+          <p><strong><i class="fa fa-briefcase"></i> Experience:</strong> {{ doctorData.experience }} years</p>
+          <p><strong><i class="fa fa-map-marker-alt"></i> Clinic Address:</strong> {{ doctorData.clinic_address }}</p>
+          <p><strong><i class="fa fa-id-badge"></i> Registration No:</strong> {{ doctorData.registration_no }}</p>
+        </div>
+      </div>      
+      <button (click)="showProfileForm = true" class="btn-primary full-width">Update Profile</button>            
+      <!-- Profile Form -->
+      <div *ngIf="showProfileForm" class="card form-card">
+        <h3><i class="fa fa-user-edit"></i> Update Your Profile</h3>
+        <form (ngSubmit)="updateProfile()">
+          <div class="form-group">
+            <label>Specialization</label>
+            <input type="text" [(ngModel)]="updatedData.specialization" name="specialization" required />
+          </div>
+          <div class="form-group">
+            <label>Experience (in years)</label>
+            <input type="text" [(ngModel)]="updatedData.experience" name="experience" required />
+          </div>
+          <div class="form-group">
+            <label>Clinic Address</label>
+            <input type="text" [(ngModel)]="updatedData.clinic_address" name="clinic_address" required />
+          </div>
+          <div class="form-group">
+            <label>Registration Number</label>
+            <input type="text" [(ngModel)]="updatedData.registration_no" name="registration_no" required />
+          </div>
+          <button type="submit" class="btn-primary">Update Profile</button>
+        </form>
+      </div>
+
+      <!-- Add Slot -->
+      <div class="card form-card">
+        <h3><i class="fa fa-calendar-plus"></i> Add Appointment Slot</h3>
+        <form (ngSubmit)="addSlot()">
+          <div class="form-group">
+            <label><i class="fa fa-calendar"></i> Date</label>
+            <input type="date" [(ngModel)]="newSlot.date" name="date" [min]="today" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fa fa-clock"></i> Start Time</label>
+              <input type="time"
+       [(ngModel)]="newSlot.start_time"
+       name="start_time"
+       class="timepicker"
+       required
+       min="06:00"
+       max="23:00"
+       (change)="validateSlotTime()" />
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-clock"></i> End Time</label>
+              <input type="time"
+       [(ngModel)]="newSlot.end_time"
+       name="end_time"
+       class="timepicker"
+       required
+       min="06:00"
+       max="23:00"
+       (change)="validateSlotTime()" />
+            </div>
+          </div>
+          <p *ngIf="timeValidationMessage" class="error-message">
+            {{ timeValidationMessage }}
+          </p>          
+            <!-- Slot Preview -->
+            <div *ngIf="newSlot.date && newSlot.start_time && newSlot.end_time" class="slot-preview">
+              <p><strong>Slot:</strong> {{ newSlot.date }} | {{ newSlot.start_time }} - {{ newSlot.end_time }}</p>
+              <p class="slot-duration">⏱️ <strong>Duration:</strong> {{ calculateSlotDuration() }}</p>
+            </div>
+
+          <button type="submit" class="btn-primary">Add Slot</button>
+        </form>
+      </div>
+      <!--  Timeline View -->
+      <div *ngIf="filteredAppointments.length > 0" class="timeline-container">
+        <h4><i class="fa fa-stream"></i> Timeline View</h4>
+        <div class="timeline-scroll">
+          <div *ngFor="let appt of filteredAppointments" class="timeline-slot" [ngClass]="{ 'completed': appt.status === 'completed' }">
+            <p class="time-range">{{ appt.start_time }} - {{ appt.end_time }}</p>
+            <p class="patient-name">{{ appt.patient_name }}</p>
+            <span class="timeline-status">{{ appt.status }}</span>
+          </div>
+        </div>
+      </div>
+      <!--  Search -->
+      <div class="search-wrapper">
+        <input type="text" [(ngModel)]="searchQuery" (input)="filterAppointments()" placeholder="Search by patient or status..." />
+      </div>
+      <!--  Appointments Table -->
+      <div class="card table-card">
+        <h3><i class="fa fa-calendar-alt"></i> Upcoming Appointments</h3>
+        <table *ngIf="filteredAppointments.length > 0">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Patient</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let patient of filteredAppointments">
+              <tr>
+                <td>{{ patient.date | date: 'yyyy-MM-dd' }}</td>
+                <td>
+                  <span class="clickable patient-name" title="View Patient History" (click)="openPatientDetails(patient.patient_id)">
+                    {{ patient.patient_name }}
+                  </span>
+                </td>
+                <td>{{ patient.start_time }}</td>
+                <td>{{ patient.end_time }}</td>
+                <td>
+                  <span *ngIf="patient.status === 'completed'" class="status-badge completed">
+                    ✅ Completed
+                  </span>
+                  <span *ngIf="patient.status === 'booked'" class="status-badge booked">
+                    📌 Booked
+                  </span>
+                </td>
+                <td>
+                  <button *ngIf="patient.status !== 'completed'" class="btn-secondary" (click)="openPrescriptionForm(patient)">
+                    ✍️ Add Prescription
+                  </button>
+                  <button *ngIf="patient.status !== 'completed'" class="btn-danger"
+                          [disabled]="!prescriptionsMap[patient.id]"
+                          (click)="markCompleted(patient.id)">
+                    ✅ Mark as Completed
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Expandable Prescription Form -->
+              <tr *ngIf="selectedAppointmentForPrescription?.id === patient.id">
+                <td colspan="6">
+                  <div class="prescription-form">
+                    <label><strong>Medicines</strong></label>
+                    <textarea [(ngModel)]="prescriptionText" rows="3" placeholder="E.g., Paracetamol 500mg, Ibuprofen 200mg"></textarea>
+                    <div style="margin-top: 10px;"></div>
+                    <label><strong>Special Instructions</strong></label>
+                    <textarea [(ngModel)]="prescriptionInstructions" rows="2" placeholder="E.g., Take after food, avoid driving"></textarea>
+                    <div class="form-buttons">
+                      <button (click)="savePrescription()" class="btn-primary">💾 Save Prescription</button>
+                      <button (click)="selectedAppointmentForPrescription = null" class="btn-secondary">Cancel</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        <p *ngIf="filteredAppointments.length === 0" class="empty-state">
+          <i class="fa fa-calendar-times"></i> No upcoming appointments found.
+        </p>
+      </div>
+      <!--  Patient Details Panel -->
+      <div *ngIf="selectedPatientId" class="card patient-details">
+        <h3><i class="fa fa-user"></i> Medical History of {{ selectedPatientName }}</h3>
+        <div *ngFor="let appt of patientAppointments" class="appt-card" [ngClass]="{ 'today-row': isToday(appt), 'overdue-row': isOverdue(appt) }">
+          <div class="appt-summary">
+            <div><strong>Date:</strong> {{ appt.date | date:'yyyy-MM-dd (EEE)' }}</div>
+            <div><strong>Time:</strong> {{ appt.start_time }} - {{ appt.end_time }}</div>
+            <div><strong>Status:</strong> {{ appt.status }}</div>
+            <div class="time-distance">{{ getTimeDistance(appt) }}</div>
+          </div>
+        </div>
+        <button class="btn-primary" (click)="openMedicalHistoryForm()">➕ Add Medical History</button>
+
+        <div *ngIf="showMedicalHistoryForm" class="form-card">
+          <h4>🩺 New Medical History Entry</h4>
+          <label>Diagnosis</label>
+          <input type="text" [(ngModel)]="medicalForm.diagnosis" required>
+          <label>Treatment</label>
+          <input type="text" [(ngModel)]="medicalForm.treatment" required>
+          <label>Medicines</label>
+          <input type="text" [(ngModel)]="medicalForm.medicines">
+          <label>Notes</label>
+          <textarea [(ngModel)]="medicalForm.notes" rows="3"></textarea>
+          <div class="button">
+            <button class="btn-primary" (click)="saveMedicalHistory()">💾 Save</button>
+            <button class="btn-secondary" (click)="showMedicalHistoryForm = false">Cancel</button>
+          </div>
+        </div>
+
+        <!--  History Buttons -->
+        <div class="medical-history-actions">
+          <button class="btn-primary" (click)="viewMedicalHistory(selectedPatientId!)">📋 View Medical History</button>
+          <button class="btn-secondary" (click)="downloadMedicalHistoryPDF(selectedPatientId!)">⬇️ Download PDF</button>
+        </div>
+
+        <div class="close-button-container">
+          <button class="btn-danger" (click)="closePatientDetails()"> Close</button>
+        </div>
+      </div>
+
+      <!--  Logout -->
+      <div class="logout-container">
+        <button class="logout-btn" (click)="logout()">
+          <i class="fa fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal-style Toast -->
+<div *ngIf="successMessage || errorMessage || infoMessage" class="toast-overlay">
+  <div class="toast-center"
+    [ngClass]="{ 'toast-success': successMessage, 'toast-error': errorMessage, 'toast-info': infoMessage }">
+    {{ successMessage || errorMessage || infoMessage }}
+  </div>
+</div>
